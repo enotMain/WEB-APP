@@ -2024,6 +2024,7 @@
       <change afterPath="D:/Рабочий стол/ВУЗ/Базы данных/Лекция/Lektsia_6.pdf" afterDir="false" />
       <change afterPath="D:/Рабочий стол/Документы/Udostoverenie_prizynika_1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/servlet/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/servlet/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -2101,7 +2102,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -2305,11 +2306,15 @@
       <workItem from="1585120381878" duration="1819000" />
       <workItem from="1585125955819" duration="1757000" />
       <workItem from="1585127919722" duration="331000" />
+      <workItem from="1585128298946" duration="989000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="WindowStateProjectService">
     <state x="548" y="240" key="#BuildArtifactsBeforeRunChooser" timestamp="1581500306612">
@@ -2342,11 +2347,15 @@
     </state>
     <state x="360" y="93" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1536.864@0.0.1536.864" timestamp="1581506598557" />
     <state x="450" y="112" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585089513357" />
-    <state x="635" y="240" key="FileChooserDialogImpl" timestamp="1585126818730">
+    <state x="95" y="45" key="CommitChangelistDialog2" timestamp="1585128612699">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="95" y="45" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585128612699" />
+    <state x="635" y="240" key="FileChooserDialogImpl" timestamp="1585128470422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="508" y="199" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1582119232276" />
-    <state x="635" y="240" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585126818730" />
+    <state x="635" y="240" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585128470422" />
     <state x="793" y="390" key="Github.ShareDialog" timestamp="1585128158368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -2415,19 +2424,19 @@
     </state>
     <state width="1493" height="223" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1585065753139" />
     <state width="1865" height="3" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585122752797" />
-    <state x="355" y="23" key="SettingsEditor" timestamp="1585126862035">
+    <state x="355" y="23" key="SettingsEditor" timestamp="1585129302266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="284" y="19" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1582641242899" />
-    <state x="355" y="23" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585126862035" />
+    <state x="355" y="23" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585129302266" />
     <state x="528" y="343" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582119441835">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="528" y="343" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.864@0.0.1536.864" timestamp="1582119441835" />
-    <state x="738" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585128160783">
+    <state x="738" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585128764439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="738" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585128160783" />
+    <state x="738" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585128764439" />
     <state x="209" y="45" key="new project wizard" timestamp="1585064159319">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
