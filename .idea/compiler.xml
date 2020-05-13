@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Gorbunov_Servlet" />
         <module name="Servlet1" />
+        <module name="Gorbunov_Servlet" />
       </profile>
     </annotationProcessing>
   </component>

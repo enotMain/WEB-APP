@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Enter</h2>
-    <form action="Site" method="post">
+    <form action="index" method="post">
         <label>Login</label>
         <input  name="login"><br>
         <label>Password</label>

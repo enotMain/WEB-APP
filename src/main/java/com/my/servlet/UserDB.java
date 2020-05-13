@@ -1,5 +1,12 @@
 package com.my.servlet;
 
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
+import java.io.FileInputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -36,102 +43,44 @@ public class UserDB {
         }
         return users;
     }
-    public static User selectOne(int id) {
-        User user = null;
-        try{
-            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
-                String sql = "SELECT * FROM users WHERE id=?";
-                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                    preparedStatement.setInt(1, id);
-                    ResultSet resultSet = preparedStatement.executeQuery();
-                    if(resultSet.next()){
-                        int userId = resultSet.getInt(1);
-                        String u_login = resultSet.getString(2);
-                        String u_password = resultSet.getString(3);
-                        user = new User(userId, u_login, u_password);
-                    }
-                }
-            }
-        }
-        catch(Exception ex){
-            System.out.println(ex);
-        }
-        return user;
-    }
-    public static int insert(User user) {
-        try{
-            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)) {
-                String sql = "INSERT INTO users (u_login, u_password) Values (?, ?)";
-                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-                    preparedStatement.setString(1, user.getLogin());
-                    preparedStatement.setString(2, user.getPassword());
-                    return  preparedStatement.executeUpdate();
-                }
-            }
-        }
-        catch(Exception ex) {
-            System.out.println(ex);
-        }
-        return 0;
-    }
 
-    public static int update(User user) {
+    public static void saveDocument(StringBuilder data, String filename, String path) {
         try {
-            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)) {
-                String sql = "UPDATE users SET u_login = ?, u_password = ? WHERE id = ?";
-                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                    preparedStatement.setString(1, user.getLogin());
-                    preparedStatement.setString(2, user.getPassword());
-                    preparedStatement.setInt(3, user.getId());
-                    return  preparedStatement.executeUpdate();
-                }
-            }
-        }
-        catch(Exception ex) {
-            System.out.println(ex);
-        }
-        return 0;
-    }
-    public static int delete(int id) {
-        try {
-            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)) {
-                String sql = "DELETE FROM users WHERE id = ?";
-                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-                    preparedStatement.setInt(1, id);
-                    return  preparedStatement.executeUpdate();
-                }
-            }
-        }
-        catch(Exception ex){
-            System.out.println(ex);
-        }
-        return 0;
-    }
-
-    public static User selectOne(String login) {
-        User user = null;
-        try {
+            String str = "";
             Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
             try (Connection connection = DriverManager.getConnection(url, username, password)) {
-                String sql = "SELECT * FROM users WHERE u_login=?";
-                try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-                    preparedStatement.setString(1, login);
-                    ResultSet resultSet = preparedStatement.executeQuery();
-                    if(resultSet.next()){
-                        int id = resultSet.getInt(1);
-                        String u_login = resultSet.getString(2);
-                        String u_password = resultSet.getString(3);
-                        user = new User(id, u_login, u_password);
+                String n = filename.replaceAll("\\.", "|");
+                if (n.split("\\|")[1].equals("doc")) {
+                    FileInputStream fileInputStream = new FileInputStream(path + "\\" + filename);
+                    HWPFDocument document = new HWPFDocument(fileInputStream);
+                    WordExtractor extractor = new WordExtractor(document);
+                    String[] fileData = extractor.getParagraphText();
+                    for (int i = 0; i < fileData.length; i++) {
+                        if (fileData[i] != null) str += fileData[i] + " ";
                     }
+                } else if (n.split("\\|")[1].equals("docx")) {
+                    FileInputStream fileInputStream = new FileInputStream(path + "\\" + filename);
+                    XWPFDocument document = new XWPFDocument(fileInputStream);
+                    XWPFWordExtractor extractor = new XWPFWordExtractor(document);
+                    str = extractor.getText();
+                } else {
+                    str = data.toString();
                 }
+
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO documents (data) VALUES (?)");
+                statement.setString(1, str);
+                statement.executeUpdate();
+
+                statement.executeUpdate();
+            } catch (Exception ex) {
+                System.out.println(ex);
             }
-        } catch(Exception ex){
-            System.out.println(ex);
+        } catch (InstantiationException |
+                InvocationTargetException |
+                NoSuchMethodException |
+                IllegalAccessException |
+                ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        return user;
     }
 }

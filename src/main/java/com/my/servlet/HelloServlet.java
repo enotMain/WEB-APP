@@ -9,12 +9,13 @@ import javax.servlet.http.*;
 
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.invalidate(); // Очищение сессии
-        Cookie cookie = new Cookie("password",""); // Создание куки
-        cookie.setMaxAge(0); // Максимальная длительность существования 0 сек
-        response.addCookie(cookie); // Добавляем в ответ
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        session.invalidate();
     }
 }
